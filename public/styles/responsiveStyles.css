@@ -1,0 +1,19 @@
+@media (width <= 600px){
+    .title{
+        flex-direction: column;
+    }
+    .title > :nth-child(1){
+        transform: rotate(0deg);
+        padding: 0px;
+    }
+    .title > :nth-child(3){
+        transform: rotate(0deg);
+        padding: 0px;
+    }
+    .search-form{
+        flex-direction: column;
+    }
+    .search-form > button{
+        margin-top: 3rem;
+    }
+}

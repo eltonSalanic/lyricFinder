@@ -1,0 +1,158 @@
+/*styles for elements*/
+
+/*Title*/
+.title{
+    display: flex;
+}
+
+.title > h1{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.title > :nth-child(1){
+    transform: rotate(-20deg);
+}
+
+.title > :nth-child(3){
+    transform: rotate(20deg);
+}
+
+.title-space{
+    width: 50px;
+}
+
+/*Search Bar and Button*/
+.search-form{
+    margin-top: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-form > :nth-child(1){ /*search bar*/
+    height: 50px;
+    width: 300px;
+
+    margin-right: 20px;
+    border: none;
+    box-shadow: 4px 4px black;
+
+    box-sizing: border-box;
+    padding-left: 1.25rem;
+    font-family: "ComicSansMS", "Comic Sans", cursive;
+}
+
+.search-form > :nth-child(1)::placeholder{ /*search bar placeholder text*/
+    color: black;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.search-form > button{ /*search button*/
+    height: 50px;
+    width: 100px;
+    
+    background-image: linear-gradient(to top, rgb(17, 120, 255) 25%, rgba(255, 255, 255, 0.294)); /*adds gradient to button*/
+    font-size: 1rem;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    border: none;
+    box-shadow: 4px 4px black;
+
+    transition: transform .2s; /*transition speed for on hover*/
+}
+
+.search-form > button:hover{ /*makes bigger on hover*/
+    transform: scale(1.05);
+}
+
+
+/*Lyrics*/
+.song-title{
+    font-family: 'blackIssue';
+    margin-top: 3rem;
+}
+.lyrics-container{ /*lyrics container*/
+    height: 80vh;
+    width: 70vw;
+    overflow: auto;
+
+    border-radius: 20px;
+    
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 0px;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.rg_embed.music{ /*div returned from Genius API*/
+    margin-top: 0px;
+    border-radius: 20px;
+}
+
+/*Scrollbar*/
+.lyrics-container::-webkit-scrollbar{
+   width: 10px;
+   background-color: white;
+   border-top-right-radius: 20px;
+   border-bottom-right-radius: 20px;
+}
+.lyrics-container::-webkit-scrollbar-track{
+    border-left: 1px solid rgba(0, 0, 0, 0.171);
+}
+.lyrics-container::-webkit-scrollbar-thumb{
+    background:rgb(17, 120, 255);
+    border-radius: 5px;
+}
+
+/*Search Results*/
+.search-results{
+    width: 70vw;
+    background-color: rgb(238, 238, 238);
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 20px;
+    box-sizing: border-box;
+
+    margin-top: 3rem;
+}
+.result-form{
+    width: 85%;
+}
+
+.result{
+    height: 150px;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.527);
+    border-radius: 10px;
+    
+    text-align: center;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    justify-items: center;
+    align-items: center;
+    
+    margin-bottom: 20px;
+    
+    position: relative;
+    font-family: 'ComicSansMS'; /*style headings*/
+    
+    transition: background-color .2s; /*animation for hover*/
+}
+
+.result:hover{
+    background-color: rgb(171, 171, 171);
+}

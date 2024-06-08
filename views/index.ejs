@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyric Finder</title>
+
+    <!--Comic font from .ttf file-->
+    <link rel="stylesheet" type="text/css" href="/fonts/font.css" />
+    <!--Comic font from CDN-->
+    <link href="https://fonts.cdnfonts.com/css/badaboom-bb" rel="stylesheet" />
+    <!--Globalstyles-->
+    <link href="/styles/global.css" rel="stylesheet" />
+    <!--Element Styles-->
+    <link href="styles/styles.css" rel="stylesheet" />
+    <!--ResponiveStyles-->
+    <link href="styles/responsiveStyles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--Background overlay (to soften background)-->
+    <div class="background-overlay"></div>
+
+    <!--Title-->
+    <div class="title">
+      <h1>Lyrics</h1>
+      <!--Just space between title words-->
+      <div class="title-space"></div>
+      <h1>Finder</h1>
+    </div>
+
+    <!--Search Form-->
+    <form class="search-form" action="/search-songs" method="POST">
+      <input
+        type="text"
+        name="songSearch"
+        placeholder="Search for songs!"
+        required
+      />
+      <button class="search-button" type="submit">Search</button>
+    </form>
+
+    <!--Lyrics (if exists)-->
+    <%if(locals.lyrics){%>
+    <h2 class="song-title"><%=songTitle%></h2>
+    <div class="lyrics-container"><%-lyrics%></div>
+    <!--Search Results (if exists)-->
+    <%}else if(locals.searchResults){%>
+    <div class="search-results">
+      <%for(let i=0; i < searchResults.length; i++){%>
+      <form class="result-form" action="/get-lyrics" method="POST">
+        <button
+          type="submit"
+          name="songSelection"
+          value="<%=searchResults[i].result.id%>"
+          class="result"
+        >
+          <h2>Cover:</h2>
+          <h2>Title:</h2>
+          <h2>Artist(s):</h2>
+          <img
+            height="70px"
+            width="70px"
+            class="song-cover"
+            src="<%=searchResults[i].result.header_image_thumbnail_url%>"
+          />
+          <p><%=searchResults[i].result.title%></p>
+          <!--Title-->
+          <p><%=searchResults[i].result.artist_names%></p>
+          <!--Artist-->
+        </button>
+      </form>
+      <%}%>
+    </div>
+    <%}%>
+  </body>
+</html>

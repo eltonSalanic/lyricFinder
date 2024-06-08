@@ -1,0 +1,43 @@
+/*remove default styles form body, make flexbox, and add background*/
+body{
+    background-image: url("../images/comic-background.png");
+    background-position: top;
+    background-size: cover;
+
+    margin: 0px;
+    padding: 0px;
+    padding-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*remove default styles from text*/
+p, h1, h2, h3, h4{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*style the background overlay*/
+.background-overlay{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(69, 69, 69, 0.136);
+
+    z-index: -1;
+}
+
+h1{
+    font-size: 75px;
+    font-family: Badaboom BB;
+    letter-spacing: 7px;
+}
+
+h2{
+    font-size: 40px;
+}
